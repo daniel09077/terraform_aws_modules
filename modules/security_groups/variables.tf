@@ -9,6 +9,7 @@ variable "security_group_description"{
 }
 variable "vpc_id"{
     type = string
-    
+
     default = ""
 }
+

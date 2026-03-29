@@ -33,11 +33,11 @@ module "ec2_server"{
   source = "../modules/ec2"
   ami = var.ec2_ami
   instance_type = var.instan_type
-  security_group_id = 
+  # security_group_id = 
 
 }
 
-module "ec2_sg"{
-  source = "../modules/security_group"
+module "web_sg"{
+  source = "../modules/security_groups"
   vpc_id = module.vpc.temp_main_vpc_id
 }

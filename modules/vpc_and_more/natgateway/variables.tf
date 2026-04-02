@@ -23,3 +23,8 @@ variable "private_subnet_ids"{
     description = "The IDs of the private subnets to associate with the private route table."
     default = []
 }
+variable "azs" {
+    type = list(string)
+    description = "The availability zones to create the NAT Gateway in."
+    default = []
+}

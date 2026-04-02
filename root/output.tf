@@ -16,9 +16,9 @@ output "public_route_table_id" {
 output "nat_gateway_id" {
   value = module.natgateway.nat_gateway_id
 }
-output "ec2_private_ip"{
+output "ec2_private_ip" {
   value = module.ec2_server.priv_ip
 }
-output "ec2_public_ip"{
+output "ec2_public_ip" {
   value = module.ec2_server.pub_ip
 }

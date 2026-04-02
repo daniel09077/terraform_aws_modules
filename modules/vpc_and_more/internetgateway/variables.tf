@@ -34,7 +34,7 @@ variable "prevent_destroy" {
   default     = false
 }
 variable "public_cidr"{
-  type = "string"
+  type = string
   description = "The CIDR block for the public route. Default is 0.0.0/0, which allows all traffic to the Internet."
   default = "0.0.0.0/0"
 }

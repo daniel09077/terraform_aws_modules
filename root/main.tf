@@ -13,7 +13,7 @@ module "pub_sub" {
   cidr_block = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   azs        = ["us-east-1a", "us-east-1a", "us-east-1c"]
 }
-
+r
 #
 module "igw" {
   source                 = "../modules/vpc_and_more/internetgateway"

@@ -5,7 +5,7 @@ locals{
 #Map availability zones to subnet IDs
     map_az_to_subnet={
 #This line does the mapping of availability zones to subnet IDs, using the index of the availability zone in the list to access the corresponding subnet ID from the list of subnet IDs. The result is a map where each availability zone is associated with its corresponding subnet ID.
-        for i in var.azs: i => aws_subnet.public_subnet[i].id
+    for i, az in var.azs: az => [var.subnet_id[i]]...
         }
 }
 variable "subnet_id"{
@@ -13,6 +13,7 @@ variable "subnet_id"{
     description = "The ID of the subnet where the NAT Gateway will be created."
     default = []
 }
+
 variable "nat_gateway_tag" {
     type = string
     description = "The tag value for the NAT Gateway."

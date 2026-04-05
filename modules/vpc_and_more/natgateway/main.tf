@@ -2,9 +2,11 @@
 resource "aws_nat_gateway" "natgateway_main" {
   for_each         = local.removed_dopple_gangers
   allocation_id = aws_eip.nat_eip[each.key].id
-  subnet_id     = local.map_az_to_subnet[each.key][0]
+  subnet_id     = local.map_az_to_subnet[each.key][0][0]
+  #azs = var.azs
+  
   tags          = {
-    Name = "${var.nat_gateway_tag}-${each.key+1}"
+    Name = "${var.nat_gateway_tag}-${each.key}"
   }
 }
 #elastic IP for the subnets attached to the Natgateway 

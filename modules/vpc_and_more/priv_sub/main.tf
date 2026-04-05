@@ -8,7 +8,7 @@ resource "aws_subnet" "private_subnet" {
   }
 
   tags              = {
-    Name = "${var.private_subnet_suffix}-${count.index+1}"
+    Name = "${var.private_subnet_suffix}-${count.index}"
 }
 
 

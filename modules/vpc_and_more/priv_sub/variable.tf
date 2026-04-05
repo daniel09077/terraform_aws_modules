@@ -24,3 +24,4 @@ variable "private_subnet_suffix" {
   type        = string
   default     = "private-subnet"
 }
+

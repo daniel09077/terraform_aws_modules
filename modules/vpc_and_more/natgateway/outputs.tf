@@ -1,3 +1,3 @@
 output "nat_gateway_id" {
-  value = aws_nat_gateway.natgateway_main[*].id
+  value = values(aws_nat_gateway.natgateway_main)[*].id
 }

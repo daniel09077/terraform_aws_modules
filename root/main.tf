@@ -3,10 +3,10 @@
 ###################################
 locals {
   master_infrastructure_map = {
-    network          = module.vpc
-    ec2              = module.ec2_server
-    security_groups  = module.security_group
-    web_security     = module.web_sg
+    network         = module.vpc
+    ec2             = module.ec2_server
+    security_groups = module.security_group
+    web_security    = module.web_sg
   }
 }
 
@@ -45,15 +45,14 @@ module "vpc" {
 module "security_group" {
   source = "../modules/security_groups"
   vpc_id = module.vpc.vpc_id
-  
-}
 
+}
 
 module "web_sg" {
   source = "../modules/security_groups"
   vpc_id = module.vpc.vpc_id
-  
-  
+
+
 }
 
 ###################################

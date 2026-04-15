@@ -13,8 +13,13 @@ variable "security_group_id"{
     default = ""
     description = "The security group ID to associate with the EC2 instance."
 }
-variable "subnet_id"{
+variable "subnet_ids"{
     type =  string
     default = ""
     description = "Subnet ID to deply instance in"
+}
+variable "server_tag_name" {
+    type = string
+    default = "EC2-Server"
+    description = "The tag name for the EC2 instance."
 }

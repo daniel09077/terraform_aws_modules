@@ -7,6 +7,7 @@ resource "aws_security_group_rule" "ingress" {
   cidr_blocks       = each.value.cidr_blocks
   security_group_id = var.security_group_id
   description = each.value.description
+  
 }
 
 

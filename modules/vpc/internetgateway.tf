@@ -10,13 +10,13 @@ resource "aws_internet_gateway" "igw" {
 #Attachment of the Internet Gateway to the VPC
   resource "aws_internet_gateway_attachment" "igw_attachment" {
   internet_gateway_id = aws_internet_gateway.igw.id
-  vpc_id              = var.vpc_id
+  vpc_id              = aws_vpc.temp_main_vpc.id
   
 }
 
 # This resource creates a route table for the public subnets and adds a default route to the Internet Gateway.
 resource "aws_route_table" "public_route_table" {
-  vpc_id = var.vpc_id
+  vpc_id = aws_vpc.temp_main_vpc.id
 
   route {
     cidr_block = var.public_cidr
@@ -29,8 +29,8 @@ resource "aws_route_table" "public_route_table" {
 }
 # This resource associates the public route table with the public subnets created in the pub_sub module.
 resource "aws_route_table_association" "public_route_table_association" {
-  count = length(var.subnet_id)
-  subnet_id      = var.subnet_id[count.index]
+  count = length(var.public_subnet_ids)
+  subnet_id      = var.public_subnet_ids[count.index]
   route_table_id = aws_route_table.public_route_table.id
 
 }
